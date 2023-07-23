@@ -23,6 +23,8 @@ public class JpaMain {
         try{
             Member findMember = em.find(Member.class, 1L);
             findMember.setName("HelloJPA");
+            //em.persist(findMember) -> 이렇게 저장해줄 필요 없음
+            //컬렉션을 다루는 것처럼 JPA가 관리해주기 때문에
             tx.commit();
         } catch (Exception e){
             tx.rollback();
