@@ -18,16 +18,17 @@ public class JpaMain {
         //트랜잭션 시작
         tx.begin();
 
-        //실제 코드
-        Member member = new Member();
-        member.setId(1L);
-        member.setName("HelloA");
-        em.persist(member);
-
-        //트랜잭션 commit
-        tx.commit();
-
-        em.close();
+        //try-catch구문 적용
+        //이름 변경
+        try{
+            Member findMember = em.find(Member.class, 1L);
+            findMember.setName("HelloJPA");
+            tx.commit();
+        } catch (Exception e){
+            tx.rollback();
+        } finally {
+            em.close();
+        }
         emf.close();
     }
 }
