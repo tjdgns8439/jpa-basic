@@ -6,6 +6,14 @@ import javax.persistence.Id;
 
 @Entity //JPA를 사용하는 객체라는 것을 인식
 public class Member {
+    public Member() {
+
+    }
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
