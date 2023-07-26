@@ -22,12 +22,14 @@ public class JpaMain {
         //이름 변경
         try{
             //비영속 상태
-            Member member = new Member();
-            member.setId(100L);
-            member.setName("HelloJPA");
-            
-            //영속 상태
+            Member member = new Member(2L, "HelloFlush");
+            //영속상태
             em.persist(member);
+            //강제로 호출.
+            //쿼리가 날라간다.
+            em.flush();
+            System.out.println(" =========== ");
+
 
             tx.commit();
         } catch (Exception e){
