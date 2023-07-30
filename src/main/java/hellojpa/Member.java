@@ -2,9 +2,11 @@ package hellojpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity //JPA를 사용하는 객체라는 것을 인식
+@Table(name = "MBR")
 public class Member {
     public Member() {
 
