@@ -24,6 +24,9 @@ public class Member {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
 
+    @Transient
+    private int temp;
+
     @Lob
     private String description;
 }
