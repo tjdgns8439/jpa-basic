@@ -21,16 +21,15 @@ public class JpaMain {
         //try-catch구문 적용
         //이름 변경
         try{
-            //비영속 상태
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            //영속상태
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeamId(team.getId());
+            em.persist(member);
             
-            //강제로 호출.
-            //쿼리가 날라간다.
-            em.flush();
-            System.out.println(" =========== ");
-
-
             tx.commit();
         } catch (Exception e){
             tx.rollback();

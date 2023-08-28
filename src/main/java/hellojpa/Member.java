@@ -1,32 +1,28 @@
 package hellojpa;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 public class Member {
     @Id
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "USERNAME")
     private String username;
 
-    private Integer age;
+    @Column(name = "TEAM_ID")
+    private Long teamId;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Transient
-    private int temp;
-
-    @Lob
-    private String description;
 }
