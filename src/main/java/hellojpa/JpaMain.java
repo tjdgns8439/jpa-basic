@@ -10,16 +10,10 @@ public class JpaMain {
         //hello는 persistence.xml에서 설정한 persistecneUnitName
         //entityManagerFactory생성
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-
-        //EntityManager 생성 -> 트랜잭션마다 생성
         EntityManager em = emf.createEntityManager();
-        //트랜잭션 생성
         EntityTransaction tx = em.getTransaction();
-        //트랜잭션 시작
         tx.begin();
 
-        //try-catch구문 적용
-        //이름 변경
         try{
             Team team = new Team();
             team.setName("TeamA");
@@ -27,9 +21,13 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeamId(team.getId());
+            member.setTeam(team);
             em.persist(member);
-            
+
+            Member findMember = em.find(Member.class, member.getId());
+            Team team1 = findMember.getTeam();
+            System.out.println("team1.getName() = " + team1.getName());
+
             tx.commit();
         } catch (Exception e){
             tx.rollback();
