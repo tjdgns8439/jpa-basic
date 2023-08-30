@@ -29,6 +29,12 @@ public class Member {
         team.getMembers().add(this);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", team=" + team +
+                '}';
+    }
 }
