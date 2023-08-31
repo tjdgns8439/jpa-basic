@@ -30,9 +30,7 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            Team findTeam = em.find(Team.class,team.getId());
-            List<Member> members = findTeam.getMembers();
-            System.out.println("members = " + findTeam);
+
 
             tx.commit();
         } catch (Exception e){
