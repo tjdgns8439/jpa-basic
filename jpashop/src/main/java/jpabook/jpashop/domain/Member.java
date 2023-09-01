@@ -24,6 +24,7 @@ public class Member {
     @Column(name = "STREET")
     private String street;
 
+    @Column(name = "ZIPCODE")
     private String zipcode;
 
     @OneToMany(mappedBy = "member")
