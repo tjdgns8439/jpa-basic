@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "ORDERS")//order가 예약어로 걸려있기 때문에 orders라는 이름으로 테이블을 생성해주어야 한다.
-public class Order {
+public class Order extends BaseEntity{
     @Id
     @Column(name = "ORDER_ID")
     private Long id;
